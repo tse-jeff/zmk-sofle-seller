@@ -37,6 +37,15 @@
         tap-ms = <100>;
     };
 
+    mo_tog: mo_tog {
+        compatible = "zmk,behavior-hold-tap";
+        label = "momentary/toggle layer";
+        bindings = <&mo>, <&tog>;
+
+        #binding-cells = <2>;
+        tapping-term-ms = <200>;
+    };
+
     behaviors {
     };
 
@@ -69,6 +78,13 @@
 
             label = "SHIFT_MCLK";
         };
+
+        screenshot: screenshot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_GUI &kp LS(S)>;
+            label = "SCREENSHOT";
+        };
     };
 
     keymap {
@@ -76,11 +92,11 @@
 
         layer0 {
             bindings = <
-&kp ESC     &kp N1    &kp N2        &kp N3        &kp N4  &kp N5              &mmv MOVE_UP     &kp N6     &kp N7  &kp N8     &kp N9    &kp N0     &kp BACKSPACE
-&kp TAB     &kp Q     &kp W         &kp E         &kp R   &kp T               &mmv MOVE_DOWN   &kp Y      &kp U   &kp I      &kp O     &kp P      &kp BSLH
-&kp GRAVE   &kp A     &kp S         &kp D         &kp F   &kp G               &mmv MOVE_LEFT   &kp H      &kp J   &kp K      &kp L     &kp SEMI   &kp APOS
-&kp LSHFT   &kp Z     &kp X         &kp C         &kp V   &kp B               &mmv MOVE_RIGHT  &kp N      &kp M   &kp COMMA  &kp DOT   &kp FSLH   &mt RSHIFT ENTER
-&kp C_MUTE  &kp CAPS  &kp LEFT_GUI  &kp LEFT_ALT  &mo 1   &kp LEFT_CONTROL    &mkp MB1         &kp SPACE  &mo 2   &mo 3      &kp LEFT  &kp RIGHT
+&kp ESC     &kp N1    &kp N2        &kp N3        &kp N4       &kp N5              &mmv MOVE_UP     &kp N6     &kp N7       &kp N8       &kp N9    &kp N0     &kp BACKSPACE
+&kp TAB     &kp Q     &kp W         &kp E         &kp R        &kp T               &mmv MOVE_DOWN   &kp Y      &kp U        &kp I        &kp O     &kp P      &kp BSLH
+&kp GRAVE   &kp A     &kp S         &kp D         &kp F        &kp G               &mmv MOVE_LEFT   &kp H      &kp J        &kp K        &kp L     &kp SEMI   &kp APOS
+&kp LSHFT   &kp Z     &kp X         &kp C         &kp V        &kp B               &mmv MOVE_RIGHT  &kp N      &kp M        &kp COMMA    &kp DOT   &kp FSLH   &mt RSHIFT ENTER
+&kp C_MUTE  &kp CAPS  &kp LEFT_GUI  &kp LEFT_ALT  &mo_tog 1 1  &kp LEFT_CONTROL    &mkp MB1         &kp SPACE  &mo_tog 2 2  &mo_tog 3 3  &kp LEFT  &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -92,8 +108,8 @@
 &kp F1      &kp F2             &kp F3            &kp F4             &kp F5           &kp F6            &msc SCRL_UP     &kp F7     &kp F8    &kp F9      &kp F10    &kp F11        &kp F12
 &trans      &trans             &mkp LCLK         &mmv MOVE_UP       &mkp RCLK        &msc SCRL_UP      &msc SCRL_DOWN   &trans     &kp END   &kp UP      &kp HOME   &kp PAGE_UP    &trans
 &trans      &trans             &mmv MOVE_LEFT    &mmv MOVE_DOWN     &mmv MOVE_RIGHT  &msc SCRL_DOWN    &msc SCRL_LEFT   &mkp LCLK  &kp LEFT  &kp DOWN    &kp RIGHT  &kp PAGE_DOWN  &trans
-&trans      &trans             &trans            &mmv MOVE_Y(-300)  &trans           &trans            &msc SCRL_RIGHT  &mkp RCLK  &trans    &kp INSERT  &kp F11    &trans         &trans
-&kp C_MUTE  &mmv MOVE_X(-300)  &mmv MOVE_Y(300)  &mmv MOVE_X(300)   &trans           &trans            &mkp LCLK        &trans     &trans    &trans      &trans     &to 1
+&soft_off   &trans             &trans            &mmv MOVE_Y(-300)  &trans           &trans            &msc SCRL_RIGHT  &mkp RCLK  &trans    &kp INSERT  &kp F11    &trans         &trans
+&kp C_MUTE  &mmv MOVE_X(-300)  &mmv MOVE_Y(300)  &mmv MOVE_X(300)   &trans           &trans            &mkp LCLK        &trans     &trans    &trans      &trans     &trans
             >;
 
             display-name = "1: nav";
@@ -105,8 +121,8 @@
 &bt BT_NXT    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6     &kp F7     &kp F8     &kp F9    &kp F10   &kp DELETE
 &bt BT_PRV    &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PRCNT       &mmv MOVE_DOWN   &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BACKSPACE
 &bt BT_CLR    &trans        &kp FSLH      &kp PIPE      &kp BSLH      &trans          &mmv MOVE_LEFT   &trans     &kp MINUS  &kp PLUS   &kp LBKT  &kp RBKT  &kp ENTER
-&out OUT_TOG  &trans        &trans        &trans        &soft_off     &trans          &mmv MOVE_RIGHT  &trans     &kp UNDER  &kp EQUAL  &kp LBRC  &kp RBRC  &trans
-&trans        &to 2         &trans        &trans        &trans        &trans          &mkp LCLK        &trans     &trans     &trans     &trans    &trans
+&out OUT_TOG  &trans        &trans        &trans        &soft_off     &trans          &mmv MOVE_RIGHT  &trans     &kp UNDER  &kp EQUAL  &kp LBRC  &kp RBRC  &soft_off
+&trans        &trans        &trans        &trans        &trans        &trans          &mkp LCLK        &trans     &trans     &trans     &trans    &trans
             >;
 
             display-name = "2: sym";
@@ -118,8 +134,8 @@
 &trans  &trans  &trans  &trans                &trans                 &trans       &trans  &trans     &trans  &kp FSLH  &kp STAR  &kp MINUS  &trans
 &trans  &kp N1  &kp N2  &kp N3                &kp N4                 &kp N5       &trans  &kp N6     &kp N7  &kp N8    &kp N9    &kp N0     &trans
 &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTRK    &trans  &kp PLUS   &kp N4  &kp N5    &kp N6    &kp PLUS   &kp EQUAL
-&trans  &trans  &trans  &trans                &trans                 &kp SLASH    &trans  &kp MINUS  &kp N1  &kp N2    &kp N3    &kp RET    &soft_off
-&trans  &to 3   &trans  &trans                &trans                 &trans       &trans  &trans     &trans  &trans    &kp N0    &kp DOT
+&trans  &trans  &trans  &trans                &trans                 &kp SLASH    &trans  &kp MINUS  &kp N1  &kp N2    &kp N3    &kp RET    &trans
+&trans  &trans  &trans  &trans                &trans                 &trans       &trans  &trans     &trans  &trans    &kp N0    &kp DOT
             >;
 
             display-name = "3: num";
@@ -128,11 +144,11 @@
 
         layer_4 {
             bindings = <
-&trans  &trans  &trans     &trans                &trans             &trans    &trans  &trans           &trans           &trans            &trans           &trans           &trans
-&trans  &trans  &trans     &kp C_BRIGHTNESS_INC  &kp C_VOLUME_UP    &trans    &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI   &rgb_ug RGB_EFF  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
-&trans  &trans  &trans     &kp C_BRIGHTNESS_DEC  &kp C_VOLUME_DOWN  &trans    &trans  &trans           &kp C_PREV       &kp C_PLAY_PAUSE  &kp C_NEXT       &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
-&trans  &trans  &kp LC(X)  &kp LC(C)             &kp LC(V)          &trans    &trans  &trans           &rgb_ug RGB_HUD  &rgb_ug RGB_HUI   &trans           &trans           &trans
-&trans  &trans  &trans     &trans                &trans             &trans    &trans  &trans           &trans           &trans            &trans           &trans
+&trans  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2         &bt BT_DISC 3      &bt BT_DISC 4    &trans  &trans           &trans           &trans            &trans           &trans           &trans
+&trans  &trans         &trans         &kp C_BRIGHTNESS_INC  &kp C_VOLUME_UP    &trans           &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI   &rgb_ug RGB_EFF  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
+&trans  &trans         &screenshot    &kp C_BRIGHTNESS_DEC  &kp C_VOLUME_DOWN  &trans           &trans  &trans           &kp C_PREV       &kp C_PLAY_PAUSE  &kp C_NEXT       &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
+&trans  &trans         &kp LC(X)      &kp LC(C)             &kp LC(V)          &trans           &trans  &trans           &rgb_ug RGB_HUD  &rgb_ug RGB_HUI   &trans           &trans           &trans
+&trans  &trans         &trans         &trans                &trans             &trans           &trans  &trans           &trans           &trans            &trans           &trans
             >;
 
             display-name = "4: func";

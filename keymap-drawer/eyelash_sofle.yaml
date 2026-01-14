@@ -57,7 +57,7 @@ layers:
   - $$mdi:apple-keyboard-caps$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
-  - '1: nav + fkey'
+  - 1:nav+f
   - $$mdi:apple-keyboard-control$$
   - '&mkp MB1'
   - $$mdi:keyboard-space$$
@@ -65,7 +65,7 @@ layers:
   - '3: numpad'
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$
-  '1: nav + fkey':
+  1:nav+f:
   - F1
   - F2
   - F3
@@ -108,7 +108,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&mmv MOVE_Y(-200)'
+  - '&mmv MOVE_Y(-300)'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:pan-right$$
@@ -119,9 +119,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:volume-off$$
-  - '&mmv MOVE_X(-200)'
-  - '&mmv MOVE_Y(200)'
-  - '&mmv MOVE_X(200)'
+  - '&mmv MOVE_X(-300)'
+  - '&mmv MOVE_Y(300)'
+  - '&mmv MOVE_X(300)'
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-left-click-outline$$
@@ -129,7 +129,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '1: nav + fkey', h: toggle}
+  - {t: '1:nav+f', h: toggle}
   '2: symb + bt':
   - {h: '$$mdi:arrow-down-bold$$', s: '$$mdi:bluetooth-connect$$'}
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
@@ -257,7 +257,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '0: main', h: toggle, type: held}
+  - {type: held}
   - {t: '0', s: )}
   - {t: ., s: '>'}
   '4: func':
@@ -273,7 +273,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - RGB COLOR HSB(283,100,76)
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -298,8 +298,8 @@ layers:
   - $$mdi:skip-previous$$
   - PLAY PAUSE
   - $$mdi:skip-next$$
-  - RGB HUD
-  - RGB HUI
+  - RGB SPD
+  - RGB SPI
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - Ctl+X
@@ -307,9 +307,9 @@ layers:
   - Ctl+V
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - '&bl BL_TOG'
-  - '&bl BL_CYCLE'
   - {t: '$$mdi:transfer$$', type: trans}
+  - RGB HUD
+  - RGB HUI
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -326,10 +326,6 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
-- p: [27, 28, 29, 30, 57]
-  k: '&soft_off'
-- p: [59, 34, 35, 36, 37]
-  k: '&soft_off'
 - p: [56, 60]
   k: {t: '0: main', h: toggle}
 - p: [60, 61]

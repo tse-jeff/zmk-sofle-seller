@@ -1,5 +1,5 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 10
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -96,7 +96,7 @@
 &kp C_MUTE  &mmv MOVE_X(-300)  &mmv MOVE_Y(300)  &mmv MOVE_X(300)   &trans           &trans            &mkp LCLK        &trans     &trans    &trans      &trans     &to 1
             >;
 
-            display-name = "1:nav+f";
+            display-name = "1: nav";
             sensor-bindings = <&scroll_encoder>;
         };
 
@@ -109,7 +109,7 @@
 &trans        &to 2         &trans        &trans        &trans        &trans          &mkp LCLK        &trans     &trans     &trans     &trans    &trans
             >;
 
-            display-name = "2: symb + bt";
+            display-name = "2: sym";
             sensor-bindings = <&scroll_encoder>;
         };
 
@@ -122,7 +122,7 @@
 &trans  &to 3   &trans  &trans                &trans                 &trans       &trans  &trans     &trans  &trans    &kp N0    &kp DOT
             >;
 
-            display-name = "3: numpad";
+            display-name = "3: num";
             sensor-bindings = <&scroll_encoder>;
         };
 

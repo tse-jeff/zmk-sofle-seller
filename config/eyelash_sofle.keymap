@@ -132,9 +132,9 @@
         layer_1 {
             bindings = <
 &kp F1      &kp F2             &kp F3            &kp F4             &kp F5           &kp F6            &msc SCRL_UP     &kp F7     &kp F8    &kp F9    &kp F10    &kp F11        &kp F12
-&kp ESC     &trans             &mkp LCLK         &mmv MOVE_UP       &mkp RCLK        &mkp MB3          &msc SCRL_DOWN   &trans     &kp HOME  &kp UP    &kp END    &kp PAGE_UP    &kp INSERT
-&trans      &trans             &mmv MOVE_LEFT    &mmv MOVE_DOWN     &mmv MOVE_RIGHT  &msc SCRL_UP      &msc SCRL_LEFT   &mkp LCLK  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN  &kp PRINTSCREEN
-&trans      &trans             &trans            &mmv MOVE_Y(-200)  &trans           &msc SCRL_DOWN    &msc SCRL_RIGHT  &mkp RCLK  &trans    &trans    &trans     &trans         &trans
+&kp ESC     &trans             &mkp LCLK         &mmv MOVE_UP       &mkp RCLK        &msc SCRL_UP      &msc SCRL_DOWN   &trans     &kp HOME  &kp UP    &kp END    &kp PAGE_UP    &kp INSERT
+&trans      &trans             &mmv MOVE_LEFT    &mmv MOVE_DOWN     &mmv MOVE_RIGHT  &msc SCRL_DOWN    &msc SCRL_LEFT   &mkp LCLK  &kp LEFT  &kp DOWN  &kp RIGHT  &kp PAGE_DOWN  &kp PRINTSCREEN
+&trans      &trans             &mkp MB3          &mmv MOVE_Y(-200)  &trans           &trans            &msc SCRL_RIGHT  &mkp RCLK  &trans    &trans    &trans     &trans         &trans
 &kp C_MUTE  &mmv MOVE_X(-200)  &mmv MOVE_Y(200)  &mmv MOVE_X(200)   &to 0            &trans            &mkp LCLK        &trans     &trans    &trans    &trans     &trans
             >;
 

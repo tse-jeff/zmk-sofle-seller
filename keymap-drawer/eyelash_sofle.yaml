@@ -57,15 +57,15 @@ layers:
   - $$mdi:apple-keyboard-caps$$
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
-  - 1:nav+f
+  - '1: nav'
   - $$mdi:apple-keyboard-control$$
   - '&mkp MB1'
   - $$mdi:keyboard-space$$
-  - '2: symb + bt'
-  - '3: numpad'
+  - '2: sym'
+  - '3: num'
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$
-  1:nav+f:
+  '1: nav':
   - F1
   - F2
   - F3
@@ -129,8 +129,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '1:nav+f', h: toggle}
-  '2: symb + bt':
+  - {t: '1: nav', h: toggle}
+  '2: sym':
   - {h: '$$mdi:arrow-down-bold$$', s: '$$mdi:bluetooth-connect$$'}
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
@@ -184,7 +184,7 @@ layers:
   - '}'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '2: symb + bt', h: toggle}
+  - {t: '2: sym', h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -195,7 +195,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  '3: numpad':
+  '3: num':
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -249,7 +249,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - '&soft_off'
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '3: numpad', h: toggle}
+  - {t: '3: num', h: toggle}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}

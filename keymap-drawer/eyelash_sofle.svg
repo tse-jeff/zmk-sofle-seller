@@ -630,10 +630,11 @@ rect.held, rect.combo.held {
 <g transform="translate(314, 283) rotate(30.0)" class="key keypos-56">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap">
-<tspan x="0" dy="-0.6em">1:nav+</tspan><tspan x="0" dy="1.2em">f</tspan>
+<a href="#nav">
+<text x="0" y="-4" class="key tap layer-activator">
+<tspan x="0" dy="-0.6em">1:</tspan><tspan x="0" dy="1.2em">nav</tspan>
 </text>
-</g>
+</a></g>
 <g transform="translate(389, 294) rotate(30.0)" class="key keypos-57">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
@@ -654,16 +655,17 @@ rect.held, rect.combo.held {
 <g transform="translate(610, 283) rotate(-30.0)" class="key keypos-60">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap">
-<tspan x="0" dy="-1.2em">2:</tspan><tspan x="0" dy="1.2em">symb</tspan><tspan x="0" dy="1.2em">…</tspan>
+<a href="#sym">
+<text x="0" y="-4" class="key tap layer-activator">
+<tspan x="0" dy="-0.6em">2:</tspan><tspan x="0" dy="1.2em">sym</tspan>
 </text>
-</g>
+</a></g>
 <g transform="translate(672, 259)" class="key keypos-61">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<a href="#numpad">
+<a href="#num">
 <text x="0" y="-4" class="key tap layer-activator">
-<tspan x="0" dy="-0.6em">3:</tspan><tspan x="0" dy="1.2em">numpad</tspan>
+<tspan x="0" dy="-0.6em">3:</tspan><tspan x="0" dy="1.2em">num</tspan>
 </text>
 </a></g>
 <g transform="translate(728, 252)" class="key keypos-62">
@@ -696,8 +698,8 @@ rect.held, rect.combo.held {
 </g>
 </g>
 </g>
-<g transform="translate(40, 388)" class="layer-1:nav+f">
-<text x="0" y="28" class="label" id="navf">1:nav+f:</text>
+<g transform="translate(40, 388)" class="layer-1: nav">
+<text x="0" y="28" class="label" id="nav">1: nav:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -1028,10 +1030,11 @@ rect.held, rect.combo.held {
 <g transform="translate(784, 259)" class="key keypos-63">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap">
-<tspan x="0" dy="-1.2em">1:nav+</tspan><tspan x="0" dy="1.2em">f</tspan>
+<a href="#nav">
+<text x="0" y="-4" class="key tap layer-activator">
+<tspan x="0" dy="-1.2em">1:</tspan><tspan x="0" dy="1.2em">nav</tspan>
 </text>
-<text x="0" y="24" class="key hold">toggle</text>
+</a><text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g class="combo combopos-0">
 <path d="M462,283 l-129,0" class="combo"/>
@@ -1053,8 +1056,8 @@ rect.held, rect.combo.held {
 </g>
 </g>
 </g>
-<g transform="translate(40, 776)" class="layer-2: symb + bt">
-<text x="0" y="28" class="label" id="symb--bt">2: symb + bt:</text>
+<g transform="translate(40, 776)" class="layer-2: sym">
+<text x="0" y="28" class="label" id="sym">2: sym:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
@@ -1343,10 +1346,11 @@ rect.held, rect.combo.held {
 <g transform="translate(140, 259)" class="key keypos-53">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<text x="0" y="-4" class="key tap">
-<tspan x="0" dy="-1.2em">2:</tspan><tspan x="0" dy="1.2em">symb</tspan><tspan x="0" dy="1.2em">…</tspan>
+<a href="#sym">
+<text x="0" y="-4" class="key tap layer-activator">
+<tspan x="0" dy="-1.2em">2:</tspan><tspan x="0" dy="1.2em">sym</tspan>
 </text>
-<text x="0" y="24" class="key hold">toggle</text>
+</a><text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(196, 252)" class="key trans keypos-54">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
@@ -1417,8 +1421,8 @@ rect.held, rect.combo.held {
 </g>
 </g>
 </g>
-<g transform="translate(40, 1165)" class="layer-3: numpad">
-<text x="0" y="28" class="label" id="numpad">3: numpad:</text>
+<g transform="translate(40, 1165)" class="layer-3: num">
+<text x="0" y="28" class="label" id="num">3: num:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans side"/>
@@ -1709,9 +1713,9 @@ rect.held, rect.combo.held {
 <g transform="translate(140, 259)" class="key keypos-53">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key side"/>
 <rect rx="4" ry="4" x="-20" y="-24" width="40" height="40" class="key"/>
-<a href="#numpad">
+<a href="#num">
 <text x="0" y="-4" class="key tap layer-activator">
-<tspan x="0" dy="-1.2em">3:</tspan><tspan x="0" dy="1.2em">numpad</tspan>
+<tspan x="0" dy="-1.2em">3:</tspan><tspan x="0" dy="1.2em">num</tspan>
 </text>
 </a><text x="0" y="24" class="key hold">toggle</text>
 </g>

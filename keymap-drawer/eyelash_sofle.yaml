@@ -40,7 +40,7 @@ layers:
   - L
   - {t: ;, s: ':'}
   - {t: '''', s: '"'}
-  - $$mdi:apple-keyboard-shift$$
+  - {t: '$$mdi:apple-keyboard-caps$$', h: '$$mdi:apple-keyboard-shift$$'}
   - Z
   - X
   - C
@@ -54,7 +54,7 @@ layers:
   - {t: /, s: '?'}
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:volume-off$$
-  - $$mdi:apple-keyboard-caps$$
+  - '&capword_lock'
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
   - {t: '1: nav', h: '1: nav'}
@@ -79,49 +79,49 @@ layers:
   - F10
   - F11
   - F12
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:keyboard-esc$$
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
   - $$mdi:mouse-right-click-outline$$
-  - $$mdi:pan-up$$
+  - '&mkp MB3'
   - $$mdi:pan-down$$
   - {t: '$$mdi:transfer$$', type: trans}
-  - END
-  - $$mdi:arrow-up-bold$$
   - HOME
+  - $$mdi:arrow-up-bold$$
+  - END
   - PgUp
-  - {t: '$$mdi:transfer$$', type: trans}
+  - Ins
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
-  - $$mdi:pan-down$$
+  - $$mdi:pan-up$$
   - $$mdi:pan-left$$
   - $$mdi:mouse-left-click-outline$$
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
   - PgDn
-  - {t: '$$mdi:transfer$$', type: trans}
-  - '&soft_off'
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - '&mmv MOVE_Y(-300)'
+  - PRINTSCREEN
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - '&mmv MOVE_Y(-200)'
+  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:pan-down$$
   - $$mdi:pan-right$$
   - $$mdi:mouse-right-click-outline$$
   - {t: '$$mdi:transfer$$', type: trans}
-  - Ins
-  - F11
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:volume-off$$
-  - '&mmv MOVE_X(-300)'
-  - '&mmv MOVE_Y(300)'
-  - '&mmv MOVE_X(300)'
+  - '&mmv MOVE_X(-200)'
+  - '&mmv MOVE_Y(200)'
+  - '&mmv MOVE_X(200)'
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-left-click-outline$$
@@ -182,7 +182,7 @@ layers:
   - {t: '=', s: +}
   - '{'
   - '}'
-  - '&soft_off'
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -292,7 +292,7 @@ layers:
   - '&screenshot'
   - $$mdi:brightness-7$$
   - $$mdi:volume-low$$
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:volume-off$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:skip-previous$$

@@ -57,11 +57,11 @@ layers:
   - '&capword_lock'
   - $$mdi:apple-keyboard-command$$
   - $$mdi:apple-keyboard-option$$
-  - {t: '1: nav', h: '1: nav'}
   - $$mdi:apple-keyboard-control$$
+  - {t: '1: nav', h: '1: nav'}
   - '&mkp MB1'
-  - $$mdi:keyboard-space$$
   - {t: '2: sym', h: '2: sym'}
+  - $$mdi:keyboard-space$$
   - {t: '3: num', h: '3: num'}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$
@@ -108,9 +108,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - '&mkp MB3'
-  - '&mmv MOVE_Y(-200)'
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:pan-left$$
+  - $$mdi:pan-right$$
   - $$mdi:pan-right$$
   - $$mdi:mouse-right-click-outline$$
   - {t: '$$mdi:transfer$$', type: trans}
@@ -119,11 +119,11 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:volume-off$$
-  - '&mmv MOVE_X(-200)'
-  - '&mmv MOVE_Y(200)'
-  - '&mmv MOVE_X(200)'
-  - {t: '0: main', h: toggle, type: held}
   - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '0: main', h: toggle, type: held}
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -162,9 +162,9 @@ layers:
   - {t: /, s: '?'}
   - '|'
   - {t: \, s: '|'}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - (
   - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - )
   - {t: '-', s: _}
   - +
   - {t: '[', s: '{'}
@@ -173,11 +173,11 @@ layers:
   - {t: '$$mdi:toggle-switch$$', h: '$$mdi:bluetooth$$', s: '$$mdi:usb$$'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - '&soft_off'
-  - {t: '$$mdi:transfer$$', type: trans}
+  - <
+  - '>'
+  - {t: '[', s: '{'}
   - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: ']', s: '}'}
   - _
   - {t: '=', s: +}
   - '{'
@@ -190,8 +190,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-left-click-outline$$
-  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '0: main', h: toggle, type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -326,7 +326,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
-- p: [56, 60]
+- p: [57, 59]
   k: {t: '0: main', h: toggle}
 - p: [60, 61]
   k: {t: '4: func', h: toggle}

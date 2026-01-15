@@ -60,8 +60,8 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - {t: '1: nav', h: '1: nav'}
   - '&mkp MB1'
-  - {t: '2: sym', h: '2: sym'}
   - $$mdi:keyboard-space$$
+  - {t: '2: sym', h: '2: sym'}
   - {t: '3: num', h: '3: num'}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$
@@ -113,9 +113,9 @@ layers:
   - $$mdi:pan-right$$
   - $$mdi:pan-right$$
   - $$mdi:mouse-right-click-outline$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:mouse-left-click-outline$$
+  - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
+  - $$mdi:mouse-right-click-outline$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:volume-off$$
@@ -127,9 +127,9 @@ layers:
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:menu-left$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-down$$', s: '$$mdi:mouse$$'}
+  - {t: '$$mdi:menu-right$$', s: '$$mdi:mouse$$'}
   '2: sym':
   - {h: '$$mdi:arrow-down-bold$$', s: '$$mdi:bluetooth-connect$$'}
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
@@ -190,8 +190,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:mouse-left-click-outline$$
-  - {t: '0: main', h: toggle, type: held}
   - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '0: main', h: '0: main', type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -225,8 +225,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - (
-  - )
+  - {t: '0', s: )}
+  - .
   - '*'
   - {t: '$$mdi:transfer$$', type: trans}
   - +
@@ -238,8 +238,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - (
+  - )
   - {t: /, s: '?'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '-', s: _}

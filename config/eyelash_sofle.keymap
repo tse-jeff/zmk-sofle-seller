@@ -191,11 +191,11 @@
 
         layer_5 {
             bindings = <
-&kp ESC     &kp N1     &kp N2  &kp N3  &kp N4        &kp N5       &trans  &trans  &trans             &trans             &trans            &trans           &trans
-&kp TAB     &kp TAB    &kp Q   &kp W   &kp E         &kp R        &trans  &kp T   &mkp LCLK          &mmv MOVE_Y(-600)  &mkp RCLK         &msc MOVE_Y(5)   &trans
-&kt LSHIFT  &kp LSHFT  &kp A   &kp S   &kp D         &kp F        &trans  &kp G   &mmv MOVE_X(-600)  &mmv MOVE_Y(600)   &mmv MOVE_X(600)  &msc MOVE_Y(-5)  &trans
-&kp LCTRL   &kp LCTRL  &kp Z   &kp X   &kp C         &kp V        &trans  &kp B   &kp N              &kp UP             &trans            &trans           &trans
-&trans      &trans     &trans  &trans  &kp LEFT_ALT  &kp SPACE    &trans  &trans  &trans             &kp LEFT           &kp DOWN          &kp RIGHT
+&kp ESC    &kp N1     &kp N2  &kp N3  &kp N4        &kp N5       &trans  &trans  &trans             &trans             &trans            &trans           &trans
+&none      &kp TAB    &kp Q   &kp W   &kp E         &kp R        &trans  &kp T   &mkp LCLK          &mmv MOVE_Y(-600)  &mkp RCLK         &msc MOVE_Y(5)   &trans
+&kp CAPS   &kp LSHFT  &kp A   &kp S   &kp D         &kp F        &trans  &kp G   &mmv MOVE_X(-600)  &mmv MOVE_Y(600)   &mmv MOVE_X(600)  &msc MOVE_Y(-5)  &trans
+&kp ENTER  &kp LCTRL  &kp Z   &kp X   &kp C         &kp V        &trans  &kp B   &kp N              &kp UP             &trans            &trans           &trans
+&trans     &trans     &trans  &trans  &kp LEFT_ALT  &kp SPACE    &trans  &trans  &trans             &kp LEFT           &kp DOWN          &kp RIGHT
             >;
 
             label = "5: game";

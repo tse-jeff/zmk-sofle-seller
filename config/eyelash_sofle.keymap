@@ -10,7 +10,13 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
-&mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
+&mmv_input_listener {
+    input-processors = <&zip_xy_scaler 2 1>;
+    turbo {
+        layers = <6>;
+        input-processors = <&zip_xy_scaler 5 1>;
+    };
+};
 
 &msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
@@ -141,9 +147,9 @@
             bindings = <
 &trans      &trans  &trans          &trans          &trans           &trans             &msc SCRL_UP     &trans     &trans     &trans          &trans          &trans           &trans
 &kp ESC     &trans  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &msc SCRL_UP       &msc SCRL_DOWN   &trans     &kp HOME   &kp UP          &kp END         &kp PAGE_UP      &kp INSERT
-&trans      &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN     &msc SCRL_LEFT   &mkp LCLK  &kp LEFT   &kp DOWN        &kp RIGHT       &kp PAGE_DOWN    &kp PRINTSCREEN
-&trans      &trans  &trans          &trans          &msc SCRL_LEFT   &msc SCRL_RIGHT    &msc SCRL_RIGHT  &mkp RCLK  &mkp LCLK  &mmv MOVE_UP    &mkp RCLK       &trans           &trans
-&kp C_MUTE  &trans  &trans          &trans          &trans           &to 0              &mkp LCLK        &trans     &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT
+&trans      &mo 6   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN     &msc SCRL_LEFT   &mkp LCLK  &kp LEFT   &kp DOWN        &kp RIGHT       &kp PAGE_DOWN    &kp PRINTSCREEN
+&trans      &trans  &trans          &trans          &msc SCRL_LEFT   &msc SCRL_RIGHT    &msc SCRL_RIGHT  &mkp RCLK  &mkp LCLK  &trans          &mkp RCLK       &trans           &trans
+&kp C_MUTE  &trans  &trans          &trans          &trans           &to 0              &mkp LCLK        &mo 6      &trans     &trans          &trans          &trans
             >;
 
             display-name = "1: nav";
@@ -199,6 +205,18 @@
             >;
 
             label = "5: game";
+        };
+
+        layer_6 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            label = "6: turbo";
         };
     };
 };

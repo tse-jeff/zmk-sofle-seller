@@ -14,7 +14,11 @@
     input-processors = <&zip_xy_scaler 2 1>;
     turbo {
         layers = <6>;
-        input-processors = <&zip_xy_scaler 5 1>;
+        input-processors = <&zip_xy_scaler 4 1>;
+    };
+    slow {
+        layers = <7>;
+        input-processors = <&zip_xy_scaler 1 2>;
     };
 };
 
@@ -149,7 +153,7 @@
 &kp ESC     &trans  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &msc SCRL_UP       &msc SCRL_DOWN   &trans     &kp HOME   &kp UP          &kp END         &kp PAGE_UP      &kp INSERT
 &trans      &mo 6   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN     &msc SCRL_LEFT   &mkp LCLK  &kp LEFT   &kp DOWN        &kp RIGHT       &kp PAGE_DOWN    &kp PRINTSCREEN
 &trans      &trans  &trans          &trans          &msc SCRL_LEFT   &msc SCRL_RIGHT    &msc SCRL_RIGHT  &mkp RCLK  &mkp LCLK  &trans          &mkp RCLK       &trans           &trans
-&kp C_MUTE  &trans  &trans          &trans          &trans           &to 0              &mkp LCLK        &mo 6      &trans     &trans          &trans          &trans
+&kp C_MUTE  &trans  &trans          &trans          &trans           &to 0              &mkp LCLK        &mo 6      &mo 7      &trans          &trans          &trans
             >;
 
             display-name = "1: nav";
@@ -217,6 +221,18 @@
             >;
 
             label = "6: turbo";
+        };
+
+        layer_7 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+
+            label = "7: slow";
         };
     };
 };

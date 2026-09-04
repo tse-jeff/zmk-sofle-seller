@@ -3,15 +3,15 @@
 # SPDX-License-Identifier: MIT
 #
 
-if BOARD_EYELASH_SOFLE_LEFT
+if BOARD_EYELASH_SOFLE_RIGHT
 
 config ZMK_KEYBOARD_NAME
-    default "Eyelash Sofle"
+    default "split_keeb"
 
 config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
-endif # BOARD_EYELASH_SOFLE_LEFT
+endif # BOARD_EYELASH_SOFLE_RIGHT
 
 
 if BOARD_EYELASH_SOFLE_LEFT || BOARD_EYELASH_SOFLE_RIGHT

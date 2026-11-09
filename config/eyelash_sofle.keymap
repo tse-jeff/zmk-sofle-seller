@@ -13,11 +13,11 @@
 &mmv_input_listener {
     input-processors = <&zip_xy_scaler 2 1>;
     turbo {
-        layers = <6>;
+        layers = <7>;
         input-processors = <&zip_xy_scaler 4 1>;
     };
     slow {
-        layers = <7>;
+        layers = <8>;
         input-processors = <&zip_xy_scaler 1 2>;
     };
 };
@@ -46,10 +46,39 @@
     mo_to: mo_to {
         compatible = "zmk,behavior-hold-tap";
         label = "momentary/to layer";
-        bindings = <&mo>, <&to>;
+        bindings = <&mo>, <&tog>;
 
         #binding-cells = <2>;
         tapping-term-ms = <200>;
+    };
+
+    // home row mods: hold only fires with a key on the other hand (or a thumb)
+    hml: hml {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOME_ROW_MOD_LEFT";
+        bindings = <&kp>, <&kp>;
+
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <280>;
+        quick-tap-ms = <175>;
+        require-prior-idle-ms = <150>;
+        hold-trigger-key-positions = <7 8 9 10 11 12 20 21 22 23 24 25 33 34 35 36 37 38 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63>;
+        hold-trigger-on-release;
+    };
+
+    hmr: hmr {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOME_ROW_MOD_RIGHT";
+        bindings = <&kp>, <&kp>;
+
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <280>;
+        quick-tap-ms = <175>;
+        require-prior-idle-ms = <150>;
+        hold-trigger-key-positions = <0 1 2 3 4 5 13 14 15 16 17 18 26 27 28 29 30 31 39 40 41 42 43 44 52 53 54 55 56 57 58 59 60 61 62 63>;
+        hold-trigger-on-release;
     };
 
     capword_lock: capword_lock {
@@ -70,21 +99,27 @@
             key-positions = <57 59>;
         };
 
-        layer_4 {
-            bindings = <&to 4>;
+        func {
+            bindings = <&tog 5>;
             key-positions = <60 61>;
         };
 
         arrow {
-            bindings = <&tog 1>;
+            bindings = <&tog 2>;
             key-positions = <34 35 36>;
             layers = <0>;
         };
 
         game {
-            bindings = <&tog 5>;
+            bindings = <&tog 6>;
             key-positions = <28 29 30>;
             layers = <0>;
+        };
+
+        cmkdh {
+            bindings = <&tog 1>;
+            key-positions = <56 60>;
+            layers = <0 1>;
         };
     };
 
@@ -129,77 +164,103 @@
 
             label = "LOCK";
         };
+
+        // hold ctrl with qwerty letter positions (for cmkdh layer)
+        ctrl_qw: ctrl_qw {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&mo 9 &kp LCTRL>,
+                <&macro_pause_for_release>,
+                <&macro_release>,
+                <&mo 9 &kp LCTRL>;
+
+            label = "CTRL_QWERTY";
+        };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        layer0 {
+        layer_main {
             bindings = <
 &kp ESC         &kp N1         &kp N2        &kp N3        &kp N4     &kp N5        &mmv MOVE_UP     &kp N6     &kp N7      &kp N8      &kp N9    &kp N0     &kp BACKSPACE
 &kp TAB         &kp Q          &kp W         &kp E         &kp R      &kp T         &mmv MOVE_DOWN   &kp Y      &kp U       &kp I       &kp O     &kp P      &kp BSLH
 &kp GRAVE       &kp A          &kp S         &kp D         &kp F      &kp G         &mmv MOVE_LEFT   &kp H      &kp J       &kp K       &kp L     &kp SEMI   &kp APOS
 &mt LSHFT CAPS  &kp Z          &kp X         &kp C         &kp V      &kp B         &mmv MOVE_RIGHT  &kp N      &kp M       &kp COMMA   &kp DOT   &kp FSLH   &mt RSHIFT ENTER
-&kp C_MUTE      &capword_lock  &kp LEFT_GUI  &kp LEFT_ALT  &kp LCTRL  &mo_to 1 1    &mkp MB1         &kp SPACE  &mo_to 2 2  &mo_to 3 3  &kp LEFT  &kp RIGHT
+&kp C_MUTE      &capword_lock  &kp LEFT_GUI  &kp LEFT_ALT  &kp LCTRL  &mo_to 2 2    &mkp MB1         &kp SPACE  &mo_to 3 3  &mo_to 4 4  &kp LEFT  &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
             display-name = "0: main";
         };
 
-        layer_1 {
+        layer_cmkdh {
+            bindings = <
+&trans  &trans  &trans  &trans          &trans          &trans  &trans  &trans  &trans          &trans          &trans     &trans     &trans
+&trans  &kp Q   &kp W   &kp F           &kp P           &kp B   &trans  &kp J   &kp L           &kp U           &kp Y      &kp SEMI   &trans
+&trans  &kp A   &kp R   &hml LCTRL S    &hml LSHFT T    &kp G   &trans  &kp M   &hmr RSHFT N    &hmr RCTRL E    &kp I      &kp O      &trans
+&trans  &kp Z   &kp X   &kp C           &kp D           &kp V   &trans  &kp K   &kp H           &kp COMMA       &kp DOT    &kp FSLH   &trans
+&trans  &trans  &trans  &trans          &ctrl_qw        &trans  &trans  &trans  &trans          &trans          &trans     &trans
+            >;
+
+            display-name = "1: cmkdh";
+        };
+
+        layer_nav {
             bindings = <
 &trans      &trans  &trans          &trans          &trans           &trans             &msc SCRL_UP     &trans     &trans     &trans          &trans          &trans           &trans
 &kp ESC     &trans  &mkp LCLK       &mmv MOVE_UP    &mkp RCLK        &msc SCRL_UP       &msc SCRL_DOWN   &trans     &kp HOME   &kp UP          &kp END         &kp PAGE_UP      &kp INSERT
-&trans      &mo 6   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN     &msc SCRL_LEFT   &mkp LCLK  &kp LEFT   &kp DOWN        &kp RIGHT       &kp PAGE_DOWN    &kp PRINTSCREEN
+&trans      &mo 7   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN     &msc SCRL_LEFT   &mkp LCLK  &kp LEFT   &kp DOWN        &kp RIGHT       &kp PAGE_DOWN    &kp PRINTSCREEN
 &trans      &trans  &trans          &trans          &msc SCRL_LEFT   &msc SCRL_RIGHT    &msc SCRL_RIGHT  &mkp RCLK  &mkp LCLK  &trans          &mkp RCLK       &trans           &trans
-&kp C_MUTE  &trans  &trans          &trans          &trans           &to 0              &mkp LCLK        &mo 6      &mo 7      &trans          &trans          &trans
+&kp C_MUTE  &trans  &trans          &trans          &trans           &tog 2             &mkp LCLK        &mo 7      &mo 8      &trans          &trans          &trans
             >;
 
-            display-name = "1: nav";
+            display-name = "2: nav";
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_2 {
+        layer_sym {
             bindings = <
 &bt BT_NXT    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2   &bt BT_SEL 3      &bt BT_SEL 4            &mmv MOVE_UP     &bt BT_DISC 0          &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &kp DELETE
 &bt BT_PRV    &kp EXCL      &kp AT        &kp HASH       &kp DOLLAR        &kp PRCNT               &mmv MOVE_DOWN   &kp CARET              &kp AMPS       &kp ASTRK      &kp LPAR       &kp RPAR       &kp BACKSPACE
 &trans        &trans        &kp FSLH      &kp PIPE       &kp BSLH          &kp LEFT_PARENTHESIS    &mmv MOVE_LEFT   &kp RIGHT_PARENTHESIS  &kp MINUS      &kp PLUS       &kp LBKT       &kp RBKT       &kp ENTER
 &out OUT_TOG  &trans        &trans        &kp LESS_THAN  &kp GREATER_THAN  &kp LEFT_BRACKET        &mmv MOVE_RIGHT  &kp RIGHT_BRACKET      &kp UNDER      &kp EQUAL      &kp LBRC       &kp RBRC       &trans
-&trans        &trans        &trans        &trans         &trans            &trans                  &mkp LCLK        &trans                 &to 0          &trans         &trans         &bt BT_CLR
+&trans        &trans        &trans        &trans         &trans            &trans                  &mkp LCLK        &trans                 &tog 3         &trans         &trans         &bt BT_CLR
             >;
 
-            display-name = "2: sym";
+            display-name = "3: sym";
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_3 {
+        layer_num {
             bindings = <
 &trans  &trans  &trans  &trans    &trans      &trans       &trans  &trans     &trans  &kp FSLH  &kp STAR  &kp MINUS  &trans
 &trans  &kp N1  &kp N2  &kp N3    &kp N4      &kp N5       &trans  &kp N6     &kp N7  &kp N8    &kp N9    &kp N0     &trans
 &trans  &trans  &trans  &kp N0    &kp PERIOD  &kp ASTRK    &trans  &kp PLUS   &kp N4  &kp N5    &kp N6    &kp PLUS   &kp EQUAL
 &trans  &trans  &trans  &kp LPAR  &kp RPAR    &kp SLASH    &trans  &kp MINUS  &kp N1  &kp N2    &kp N3    &kp RET    &trans
-&trans  &trans  &trans  &trans    &trans      &trans       &trans  &trans     &trans  &to 0     &kp N0    &kp DOT
+&trans  &trans  &trans  &trans    &trans      &trans       &trans  &trans     &trans  &tog 4    &kp N0    &kp DOT
             >;
 
-            display-name = "3: num";
+            display-name = "4: num";
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_4 {
+        layer_func {
             bindings = <
 &kp F1  &kp F2  &kp F3       &kp F4                &kp F5             &kp F6        &trans  &kp F7           &kp F8           &kp F9            &kp F10          &kp F11          &kp F12
 &trans  &trans  &trans       &kp C_BRIGHTNESS_INC  &kp C_VOLUME_UP    &trans        &trans  &rgb_ug RGB_TOG  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI   &rgb_ug RGB_EFF  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI
 &trans  &trans  &screenshot  &kp C_BRIGHTNESS_DEC  &kp C_VOLUME_DOWN  &kp C_MUTE    &trans  &trans           &kp C_PREV       &kp C_PLAY_PAUSE  &kp C_NEXT       &rgb_ug RGB_SPD  &rgb_ug RGB_SPI
 &trans  &trans  &kp LC(X)    &kp LC(C)             &kp LC(V)          &trans        &trans  &trans           &rgb_ug RGB_HUD  &rgb_ug RGB_HUI   &trans           &trans           &trans
-&trans  &trans  &trans       &trans                &trans             &trans        &trans  &trans           &trans           &to 0             &trans           &trans
+&trans  &trans  &trans       &trans                &trans             &trans        &trans  &trans           &trans           &tog 5            &trans           &trans
             >;
 
-            display-name = "4: func";
+            display-name = "5: func";
             sensor-bindings = <&scroll_encoder>;
         };
 
-        layer_5 {
+        layer_game {
             bindings = <
 &kp ESC    &kp N1     &kp N2  &kp N3  &kp N4        &kp N5       &trans  &trans  &trans             &trans             &trans            &trans           &trans
 &none      &kp TAB    &kp Q   &kp W   &kp E         &kp R        &trans  &kp T   &mkp LCLK          &mmv MOVE_Y(-1000)  &mkp RCLK         &msc MOVE_Y(5)   &trans
@@ -208,10 +269,10 @@
 &trans     &trans     &trans  &trans  &kp LEFT_ALT  &kp SPACE    &trans  &trans  &trans             &kp LEFT           &kp DOWN          &kp RIGHT
             >;
 
-            label = "5: game";
+            label = "6: game";
         };
 
-        layer_6 {
+        layer_turbo {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -220,10 +281,10 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            label = "6: turbo";
+            label = "7: turbo";
         };
 
-        layer_7 {
+        layer_slow {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
@@ -232,7 +293,19 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
-            label = "7: slow";
+            label = "8: slow";
+        };
+
+        layer_ctrl_qwerty {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans   &trans    &trans
+&trans  &kp Q   &kp W   &kp E   &kp R   &kp T   &trans  &kp Y   &kp U   &kp I      &kp O    &kp P     &trans
+&trans  &kp A   &kp S   &kp D   &kp F   &kp G   &trans  &kp H   &kp J   &kp K      &kp L    &kp SEMI  &trans
+&trans  &kp Z   &kp X   &kp C   &kp V   &kp B   &trans  &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans   &trans
+            >;
+
+            display-name = "9: ctrl qwerty";
         };
     };
 };

@@ -92,6 +92,33 @@
         hold-trigger-on-release;
     };
 
+    // home row shift: shifts as soon as an other-hand key is pressed, like a regular shift
+    hsl: hsl {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOME_ROW_SHIFT_LEFT";
+        bindings = <&kp>, <&kp>;
+
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <175>;
+        require-prior-idle-ms = <100>;
+        hold-trigger-key-positions = <7 8 9 10 11 12 20 21 22 23 24 25 33 34 35 36 37 38 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63>;
+    };
+
+    hsr: hsr {
+        compatible = "zmk,behavior-hold-tap";
+        label = "HOME_ROW_SHIFT_RIGHT";
+        bindings = <&kp>, <&kp>;
+
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <200>;
+        quick-tap-ms = <175>;
+        require-prior-idle-ms = <100>;
+        hold-trigger-key-positions = <0 1 2 3 4 5 13 14 15 16 17 18 26 27 28 29 30 31 39 40 41 42 43 44 52 53 54 55 56 57 58 59 60 61 62 63>;
+    };
+
     capword_lock: capword_lock {
         compatible = "zmk,behavior-tap-dance";
         label = "CAPWORD_LOCK";
@@ -221,7 +248,7 @@
             bindings = <
 &trans  &trans  &trans  &trans          &trans          &trans  &trans  &trans  &trans          &trans          &trans     &trans     &trans
 &trans  &kp Q   &kp W   &kp F           &kp P           &kp B   &trans  &kp J   &kp L           &kp U           &kp Y      &kp SEMI   &trans
-&trans  &kp A   &kp R   &hml LCTRL S    &hml LSHFT T    &kp G   &trans  &kp M   &hmr RSHFT N    &hmr RCTRL E    &kp I      &kp O      &trans
+&trans  &kp A   &kp R   &hml LCTRL S    &hsl LSHFT T    &kp G   &trans  &kp M   &hsr RSHFT N    &hmr RCTRL E    &kp I      &kp O      &trans
 &trans  &kp Z   &kp X   &kp C           &kp D           &kp V   &trans  &kp K   &kp H           &kp COMMA       &kp DOT    &kp FSLH   &trans
 &trans  &trans  &trans  &trans          &ctrl_qw        &trans  &trans  &trans  &trans          &trans          &trans     &trans
             >;

@@ -169,6 +169,8 @@
         ctrl_qw: ctrl_qw {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&mo 9 &kp LCTRL>,

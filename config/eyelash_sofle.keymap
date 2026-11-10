@@ -121,6 +121,14 @@
             key-positions = <56 60>;
             layers = <0 1>;
         };
+
+        // space + right pinky home key (; on qwerty, O on colemak-dh) = enter
+        enter {
+            bindings = <&kp ENTER>;
+            key-positions = <59 37>;
+            layers = <0 1>;
+            require-prior-idle-ms = <150>;
+        };
     };
 
     macros {

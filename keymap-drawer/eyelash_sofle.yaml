@@ -664,3 +664,6 @@ combos:
 - p: [56, 60]
   k: {t: '1: cmkdh', h: toggle}
   l: ['0: main', '1: cmkdh']
+- p: [59, 37]
+  k: {t: '$$mdi:keyboard-return$$', type: enter}
+  l: ['0: main', '1: cmkdh']

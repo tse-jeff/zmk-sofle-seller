@@ -61,7 +61,7 @@ layers:
   - {t: '2: nav', h: '2: nav'}
   - '&mkp MB1'
   - $$mdi:keyboard-space$$
-  - {t: '3: sym', h: '3: sym'}
+  - {t: '&num_word 4', h: '3: sym'}
   - {t: '4: num', h: '4: num'}
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$

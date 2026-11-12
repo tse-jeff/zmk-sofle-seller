@@ -1,5 +1,5 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 160  // 10 x16: smooth scrolling sends 1/16-notch steps
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -31,7 +31,11 @@
     delay-ms = <0>;                   // 0
 };
 
-&mmv { trigger-period-ms = <16>; };
+&mmv {
+    trigger-period-ms = <16>;
+    time-to-max-speed-ms = <500>;
+    acceleration-exponent = <2>;      // slow start for precise taps, then speeds up
+};
 
 &soft_off { hold-time-ms = <2000>; };
 
@@ -335,8 +339,8 @@
         layer_game {
             bindings = <
 &kp ESC    &kp N1     &kp N2  &kp N3  &kp N4        &kp N5       &trans  &trans  &trans             &trans             &trans            &trans           &trans
-&none      &kp TAB    &kp Q   &kp W   &kp E         &kp R        &trans  &kp T   &mkp LCLK          &mmv MOVE_Y(-1000)  &mkp RCLK         &msc MOVE_Y(5)   &trans
-&kp CAPS   &kp LSHFT  &kp A   &kp S   &kp D         &kp F        &trans  &kp G   &mmv MOVE_X(-1000)  &mmv MOVE_Y(1000)   &mmv MOVE_X(1000)  &msc MOVE_Y(-5)  &trans
+&none      &kp TAB    &kp Q   &kp W   &kp E         &kp R        &trans  &kp T   &mkp LCLK          &mmv MOVE_Y(-1000)  &mkp RCLK         &msc MOVE_Y(80)  &trans
+&kp CAPS   &kp LSHFT  &kp A   &kp S   &kp D         &kp F        &trans  &kp G   &mmv MOVE_X(-1000)  &mmv MOVE_Y(1000)   &mmv MOVE_X(1000)  &msc MOVE_Y(-80) &trans
 &kp ENTER  &kp LCTRL  &kp Z   &kp X   &kp C         &kp V        &trans  &kp B   &kp N              &kp UP             &trans            &trans           &trans
 &trans     &trans     &trans  &trans  &kp LEFT_ALT  &kp SPACE    &trans  &trans  &trans             &kp LEFT           &kp DOWN          &kp RIGHT
             >;

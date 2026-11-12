@@ -128,6 +128,13 @@
         bindings = <&caps_word>, <&lock>;
     };
 
+    gui_caps: gui_caps {
+        compatible = "zmk,behavior-tap-dance";
+        label = "GUI_CAPS";
+        #binding-cells = <0>;
+        bindings = <&kp LEFT_GUI>, <&kp CAPS>;
+    };
+
     behaviors {
     };
 
@@ -167,6 +174,21 @@
             bindings = <&kp ENTER>;
             key-positions = <59 37>;
             layers = <0 1 9>;
+            require-prior-idle-ms = <150>;
+        };
+
+        // C + V = Win+V (clipboard history)
+        clip_qwerty {
+            bindings = <&kp LG(V)>;
+            key-positions = <42 43>;
+            layers = <0>;
+            require-prior-idle-ms = <150>;
+        };
+
+        clip_cmkdh {
+            bindings = <&kp LG(V)>;
+            key-positions = <42 44>;
+            layers = <1>;
             require-prior-idle-ms = <150>;
         };
     };
@@ -238,8 +260,8 @@
 &kp ESC         &kp N1         &kp N2        &kp N3        &kp N4     &kp N5        &mmv MOVE_UP     &kp N6     &kp N7      &kp N8      &kp N9    &kp N0     &kp BACKSPACE
 &kp TAB         &kp Q          &kp W         &kp E         &kp R      &kp T         &mmv MOVE_DOWN   &kp Y      &kp U       &kp I       &kp O     &kp P      &kp BACKSPACE
 &kp GRAVE       &kp A          &kp S         &kp D         &kp F      &kp G         &mmv MOVE_LEFT   &kp H      &kp J       &kp K       &kp L     &kp SEMI   &kp APOS
-&mt LSHFT CAPS  &kp Z          &kp X         &kp C         &kp V      &kp B         &mmv MOVE_RIGHT  &kp N      &kp M       &kp COMMA   &kp DOT   &kp FSLH   &mt RSHIFT ENTER
-&kp C_MUTE      &capword_lock  &kp LEFT_GUI  &kp LEFT_ALT  &kp LCTRL  &mo_to 2 2    &mkp MB1         &kp SPACE  &mo_nw 3 4  &none       &kp LEFT  &kp RIGHT
+&kp LSHFT       &kp Z         &kp X         &kp C         &kp V      &kp B         &mmv MOVE_RIGHT  &kp N      &kp M       &kp COMMA   &kp DOT   &kp FSLH   &mt RSHIFT ENTER
+&kp C_MUTE      &capword_lock  &gui_caps     &kp LEFT_ALT  &kp LCTRL  &mo_to 2 2    &mkp MB1         &kp SPACE  &mo_nw 3 4  &kp DELETE  &kp LEFT  &kp RIGHT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;

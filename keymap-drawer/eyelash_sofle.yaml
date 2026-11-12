@@ -40,7 +40,7 @@ layers:
   - L
   - {t: ;, s: ':'}
   - {t: '''', s: '"'}
-  - {t: '$$mdi:apple-keyboard-caps$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - $$mdi:apple-keyboard-shift$$
   - Z
   - X
   - C
@@ -55,14 +55,14 @@ layers:
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$'}
   - $$mdi:volume-off$$
   - '&capword_lock'
-  - $$mdi:apple-keyboard-command$$
+  - '&gui_caps'
   - $$mdi:apple-keyboard-option$$
   - $$mdi:apple-keyboard-control$$
   - {t: '2: nav', h: '2: nav'}
   - '&mkp MB1'
   - $$mdi:keyboard-space$$
   - {t: '&num_word 4', h: '3: sym'}
-  - {t: '4: num', h: '4: num'}
+  - $$mdi:backspace-reverse-outline$$
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-right-bold$$
   '1: cmkdh':
@@ -298,7 +298,7 @@ layers:
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '6', s: ^}
-  - +
+  - '*'
   - {t: '=', s: +}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -311,7 +311,7 @@ layers:
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
   - {t: '3', s: '#'}
-  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: /, s: '?'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -322,9 +322,9 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '4: num', h: toggle, type: held}
   - {t: '0', s: )}
   - {t: ., s: '>'}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
   '5: func':
   - F1
   - F2
@@ -387,7 +387,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '5: func', h: toggle}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   '6: game':
@@ -415,7 +415,7 @@ layers:
   - $$mdi:mouse-left-click-outline$$
   - '&mmv MOVE_Y(-1000)'
   - $$mdi:mouse-right-click-outline$$
-  - '&msc MOVE_Y(5)'
+  - '&msc MOVE_Y(80)'
   - {t: '$$mdi:transfer$$', type: trans}
   - $$mdi:apple-keyboard-caps$$
   - $$mdi:apple-keyboard-shift$$
@@ -428,7 +428,7 @@ layers:
   - '&mmv MOVE_X(-1000)'
   - '&mmv MOVE_Y(1000)'
   - '&mmv MOVE_X(1000)'
-  - '&msc MOVE_Y(-5)'
+  - '&msc MOVE_Y(-80)'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:apple-keyboard-control$$
@@ -666,4 +666,10 @@ combos:
   l: ['0: main', '1: cmkdh']
 - p: [59, 37]
   k: {t: '$$mdi:keyboard-return$$', type: enter}
-  l: ['0: main', '1: cmkdh']
+  l: ['0: main', '1: cmkdh', '9: ctrl qwerty']
+- p: [42, 43]
+  k: {t: V, h: '$$mdi:apple-keyboard-command$$'}
+  l: ['0: main']
+- p: [42, 44]
+  k: {t: V, h: '$$mdi:apple-keyboard-command$$'}
+  l: ['1: cmkdh']
